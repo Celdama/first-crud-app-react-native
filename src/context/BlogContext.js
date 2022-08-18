@@ -10,6 +10,8 @@ const blogReducer = (state, action) => {
           title: `blog post #${state.length + 1}`,
         },
       ];
+    case 'delete_blogpost':
+      return state.filter((blogPost) => blogPost.id !== action.payload);
     default:
       return state;
   }
@@ -18,6 +20,12 @@ const blogReducer = (state, action) => {
 const addBlogPost = (dispatch) => {
   return () => {
     dispatch({ type: 'add_blogpost' });
+  };
+};
+
+const deleteBlogPost = (dispatch) => {
+  return (id) => {
+    dispatch({ type: 'delete_blogpost', payload: id });
   };
 };
 
