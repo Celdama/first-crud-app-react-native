@@ -6,6 +6,7 @@ import { Context } from '../context/BlogContext';
 
 const IndexScreen = ({ navigation }) => {
   const { state, addBlogPost, deleteBlogPost } = useContext(Context);
+  const { navigate } = navigation;
 
   return (
     <View>
@@ -15,9 +16,7 @@ const IndexScreen = ({ navigation }) => {
         keyExtractor={({ id }) => id}
         renderItem={({ item }) => {
           return (
-            <TouchableOpacity
-              onPress={() => navigation.navigate('Show', { id: item.id })}
-            >
+            <TouchableOpacity onPress={() => navigate('Show', { id: item.id })}>
               <View style={styles.row}>
                 <Text style={styles.title}>{item.title}</Text>
                 <TouchableOpacity onPress={() => deleteBlogPost(item.id)}>
@@ -30,6 +29,19 @@ const IndexScreen = ({ navigation }) => {
       />
     </View>
   );
+};
+
+IndexScreen.navigationOptions = ({ navigation }) => {
+  const { navigate } = navigation;
+  return {
+    headerRight: () => {
+      return (
+        <TouchableOpacity onPress={() => navigate('Create')}>
+          <Feather name='plus' size={30} style={styles.headerIcon} />
+        </TouchableOpacity>
+      );
+    },
+  };
 };
 
 const styles = StyleSheet.create({
@@ -46,6 +58,9 @@ const styles = StyleSheet.create({
   },
   icon: {
     fontSize: 24,
+  },
+  headerIcon: {
+    marginRight: 10,
   },
 });
 
