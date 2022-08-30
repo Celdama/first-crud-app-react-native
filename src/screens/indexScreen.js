@@ -10,6 +10,16 @@ const IndexScreen = ({ navigation }) => {
 
   useEffect(() => {
     getBlogPosts();
+
+    const listerner = navigation.addListener('didFocus', () => {
+      getBlogPosts();
+    });
+
+    // this function right here is the perfect location to do some cleanup after our component and essentially
+    // turn off any listeners that we have created
+    return () => {
+      listerner.remove();
+    };
   }, []);
 
   return (
