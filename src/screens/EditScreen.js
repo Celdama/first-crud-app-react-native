@@ -18,13 +18,13 @@ const EditScreen = ({ navigation }) => {
       <TextInput
         value={title}
         style={styles.input}
-        onChangeText={(textChange) => setTitle(textChange)}
+        onChangeText={(newTitle) => setTitle(newTitle)}
       />
       <Text style={styles.label}>Edit Content:</Text>
       <TextInput
         value={content}
         style={styles.input}
-        onChangeText={(textChange) => setContent(textChange)}
+        onChangeText={(newContent) => setContent(newContent)}
       />
       <Button
         title='Edit Blog Post'
