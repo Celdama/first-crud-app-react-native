@@ -1,4 +1,4 @@
-import { Ionicons } from '@expo/vector-icons';
+import { EvilIcons } from '@expo/vector-icons';
 import { useContext } from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
@@ -30,7 +30,7 @@ ShowScreen.navigationOptions = ({ navigation }) => {
             })
           }
         >
-          <Ionicons style={styles.headerIcon} size={30} name='md-pencil' />
+          <EvilIcons style={styles.headerIcon} size={30} name='pencil' />
         </TouchableOpacity>
       );
     },
