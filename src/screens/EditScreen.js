@@ -8,7 +8,7 @@ const EditScreen = ({ navigation }) => {
   const [title, setTitle] = useState(null);
   const [content, setContent] = useState(null);
   const id = navigation.getParam('id');
-  const { state } = useContext(Context);
+  const { state, editBlogPost } = useContext(Context);
 
   useEffect(() => {
     const blogPost = state.find((blogPost) => blogPost.id === id);
@@ -31,7 +31,7 @@ const EditScreen = ({ navigation }) => {
         style={styles.input}
         onChangeText={(textChange) => setContent(textChange)}
       />
-      <Button title='Edit Blog Post' onPress={() => console.log('edited')} />
+      <Button title='Edit Blog Post' onPress={() => editBlogPost()} />
     </View>
   );
 };

@@ -13,6 +13,8 @@ const blogReducer = (state, action) => {
       ];
     case 'delete_blogpost':
       return state.filter((blogPost) => blogPost.id !== action.payload);
+    case 'edit_blogpost':
+      return state;
     default:
       return state;
   }
@@ -42,6 +44,9 @@ const deleteBlogPost = (dispatch) => {
 const editBlogPost = (dispatch) => {
   return () => {
     console.log('edit from context');
+    dispatch({
+      type: 'edit_blogpost',
+    });
   };
 };
 
