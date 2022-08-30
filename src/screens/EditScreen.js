@@ -31,7 +31,14 @@ const EditScreen = ({ navigation }) => {
         style={styles.input}
         onChangeText={(textChange) => setContent(textChange)}
       />
-      <Button title='Edit Blog Post' onPress={() => editBlogPost()} />
+      <Button
+        title='Edit Blog Post'
+        onPress={() =>
+          editBlogPost(id, title, content, () => {
+            navigation.navigate('Index');
+          })
+        }
+      />
     </View>
   );
 };
