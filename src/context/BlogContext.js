@@ -35,7 +35,9 @@ const addBlogPost = (dispatch) => {
         content,
       },
     });
-    callback();
+    if (callback) {
+      callback();
+    }
   };
 };
 
@@ -56,7 +58,9 @@ const editBlogPost = (dispatch) => {
         content,
       },
     });
-    callback();
+    if (callback) {
+      callback();
+    }
   };
 };
 
