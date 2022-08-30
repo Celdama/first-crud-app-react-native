@@ -40,7 +40,6 @@ ShowScreen.navigationOptions = ({ navigation }) => {
 const styles = StyleSheet.create({
   headerIcon: {
     marginRight: 10,
-    color: 'black',
   },
 });
 
