@@ -1,12 +1,16 @@
 import { Feather } from '@expo/vector-icons';
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { FlatList, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 import { Context } from '../context/BlogContext';
 
 const IndexScreen = ({ navigation }) => {
-  const { state, deleteBlogPost } = useContext(Context);
+  const { state, getBlogPosts, deleteBlogPost } = useContext(Context);
   const { navigate } = navigation;
+
+  useEffect(() => {
+    getBlogPosts();
+  }, []);
 
   return (
     <View>
