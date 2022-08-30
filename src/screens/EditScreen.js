@@ -5,17 +5,12 @@ import { TextInput } from 'react-native-gesture-handler';
 import { Context } from '../context/BlogContext';
 
 const EditScreen = ({ navigation }) => {
-  const [title, setTitle] = useState(null);
-  const [content, setContent] = useState(null);
-  const id = navigation.getParam('id');
   const { state, editBlogPost } = useContext(Context);
+  const id = navigation.getParam('id');
+  const blogPost = state.find((blogPost) => blogPost.id === id);
 
-  useEffect(() => {
-    const blogPost = state.find((blogPost) => blogPost.id === id);
-
-    setTitle(blogPost.title);
-    setContent(blogPost.content);
-  }, [id]);
+  const [title, setTitle] = useState(blogPost.title);
+  const [content, setContent] = useState(blogPost.content);
 
   return (
     <View>
