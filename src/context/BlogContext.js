@@ -54,8 +54,9 @@ const deleteBlogPost = (dispatch) => {
 };
 
 const editBlogPost = (dispatch) => {
-  return (id, title, content, callback) => {
-    console.log('edit from context');
+  return async (id, title, content, callback) => {
+    await jsonServer.put(`/blogposts/${id}`, { title, content });
+
     dispatch({
       type: 'edit_blogpost',
       payload: {
