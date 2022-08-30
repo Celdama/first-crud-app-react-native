@@ -26,7 +26,7 @@ const blogReducer = (state, action) => {
 
 const addBlogPost = (dispatch) => {
   // REMEMBER : the inner function side of here is what we actually end up calling from inside our component
-  // so if we want to, we can accept some arguments that will come from our component and then pass those through the dispatch function
+  // so if we want to, we can accept some arguments that will come from our component and then pass those through the dispatch function.
   return (title, content, callback) => {
     dispatch({
       type: 'add_blogpost',
