@@ -23,8 +23,14 @@ ShowScreen.navigationOptions = ({ navigation }) => {
   return {
     headerRight: () => {
       return (
-        <TouchableOpacity>
-          <Ionicons style={styles.headerIcon} name='md-pencil' />
+        <TouchableOpacity
+          onPress={() =>
+            navigation.navigate('Edit', {
+              id: navigation.getParam('id'),
+            })
+          }
+        >
+          <Ionicons style={styles.headerIcon} size={30} name='md-pencil' />
         </TouchableOpacity>
       );
     },
@@ -34,7 +40,6 @@ ShowScreen.navigationOptions = ({ navigation }) => {
 const styles = StyleSheet.create({
   headerIcon: {
     marginRight: 10,
-    size: 30,
     color: 'black',
   },
 });
