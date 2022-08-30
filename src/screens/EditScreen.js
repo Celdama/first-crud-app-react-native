@@ -8,7 +8,16 @@ const EditScreen = ({ navigation }) => {
   const id = navigation.getParam('id');
   const blogPost = state.find((blogPost) => blogPost.id === id);
 
-  return <BlogPostForm />;
+  return (
+    <BlogPostForm
+      onSubmit={(title, content) => {
+        editBlogPost(id, title, content, () => {
+          navigation.navigate('Index');
+        });
+      }}
+      initialValues={{ title: blogPost.title, content: blogPost.content }}
+    />
+  );
 };
 
 export default EditScreen;
